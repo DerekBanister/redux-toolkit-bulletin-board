@@ -16,10 +16,19 @@ const initialState = [
 const postsSlice = createSlice({
     name: 'posts',
     initialState,
-    reducers: {}
+    reducers: {
+        //gives us ability to add new posts
+        postAdded(state, action) {
+            //.push only works in create slice, normally cannot mutate state like this
+            state.push(action.payload);
+        }
+    }
 })
 
 //anonymous export
 export const selectAllPosts = (state) => state.posts;
+
+// create slice automatically generates action creators and action types
+export const { postAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
