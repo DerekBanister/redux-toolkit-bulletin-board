@@ -1,0 +1,31 @@
+.posts-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.posts-list h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #1877f2;
+}
+
+.posts-list article {
+    background-color: #ffffff;
+    border: 1px solid #dddfe2;
+    border-radius: 10px;
+    margin: 16px 0;
+    padding: 16px;
+}
+
+.posts-list article h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #1877f2;
+}
+
+.posts-list article p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #1c1e21;
+}
