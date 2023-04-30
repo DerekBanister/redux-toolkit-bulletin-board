@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postAdded, prepare } from "./postSlice";
-//helper function to generate unique IDs
-import { nanoid } from "@reduxjs/toolkit";
+import { postAdded } from "./postSlice";
 
 const AddPostForm = () => {
     const dispatch = useDispatch();
