@@ -24,13 +24,14 @@ const postsSlice = createSlice({
                 state.push(action.payload);
             },
             // prepare function allows us to create the payload outside of the reducer
-            prepare(title, content) {
+            prepare(title, content, userId) {
                 return {
                     // returns payload as it needs to be formatted
                     payload: {
                         id: nanoid(),
                         title,
-                        content
+                        content,
+                        userId,
                     }
                 }
             }
