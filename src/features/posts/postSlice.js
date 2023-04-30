@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = [
     {
@@ -18,9 +18,22 @@ const postsSlice = createSlice({
     initialState,
     reducers: {
         //gives us ability to add new posts
-        postAdded(state, action) {
-            //.push only works in create slice, normally cannot mutate state like this
-            state.push(action.payload);
+        postAdded: {
+            reducer(state, action) {
+                //.push only works in create slice, normally cannot mutate state like this
+                state.push(action.payload);
+            },
+            // prepare function allows us to create the payload outside of the reducer
+            prepare(title, content) {
+                return {
+                    // returns payload as it needs to be formatted
+                    payload: {
+                        id: nanoid(),
+                        title,
+                        content
+                    }
+                }
+            }
         }
     }
 })
