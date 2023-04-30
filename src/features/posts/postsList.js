@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectAllPosts } from './postSlice';
 
 import PostAuthor from './postAuthor';
+import TimeAgo from './timeAgo';
 
 
 //component for app.js
@@ -17,6 +18,7 @@ const PostsList = () => {
             <p>{post.content.substring(0, 100)}</p>
             <p className="postCredit">
                 <PostAuthor userId={post.userId} />
+                <TimeAgo timestamp={post.date} />
             </p>
         </article>
     ));
