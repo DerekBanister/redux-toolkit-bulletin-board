@@ -5,6 +5,7 @@ import { selectAllPosts } from './postSlice';
 
 import PostAuthor from './postAuthor';
 import TimeAgo from './timeAgo';
+import ReactionButtons from './reactionBtns';
 
 
 //component for app.js
@@ -25,6 +26,7 @@ const PostsList = () => {
                 <PostAuthor userId={post.userId} />
                 <TimeAgo timestamp={post.date} />
             </p>
+            <ReactionButtons post={post} />
         </article>
     ));
 

@@ -85,6 +85,6 @@ const postsSlice = createSlice({
 export const selectAllPosts = (state) => state.posts;
 
 // create slice automatically generates action creators and action types
-export const { postAdded } = postsSlice.actions;
+export const { postAdded, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
