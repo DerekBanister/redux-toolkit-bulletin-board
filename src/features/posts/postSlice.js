@@ -8,12 +8,28 @@ const initialState = [
         content: "I've heard good things.",
         // taking new date object and subtracting 10min, then converting/storing as a string
         date: sub(new Date(), { minutes: 10 }).toISOString(),
+        reactions: {
+            thumbsUp: 0,
+            hooray: 0,
+            heart: 0,
+            rocket: 0,
+            coffee: 0,
+
+        }
     },
     {
         id: '2',
         title: 'Slices...',
         content: "The more I say slice, the more I want pizza.",
         date: sub(new Date(), { minutes: 5 }).toISOString(),
+        reactions: {
+            thumbsUp: 0,
+            hooray: 0,
+            heart: 0,
+            rocket: 0,
+            coffee: 0,
+
+        }
     },
 ]
 
@@ -38,10 +54,30 @@ const postsSlice = createSlice({
                         // doesnt need to be passed in, can be generated
                         date: new Date().toISOString(),
                         userId,
+                        reactions: {
+                            thumbsUp: 0,
+                            hooray: 0,
+                            heart: 0,
+                            rocket: 0,
+                            coffee: 0,
+
+                        }
                     }
                 }
             }
+        },
+        //gives us ability to add reactions to posts
+        reactionAdded(state, action) {
+            // destructuring action payload, comes from the action creator
+            const { postId, reaction } = action.payload;
+            // find post by id, then increment the reaction
+            const existingPost = state.find(post => post.id === postId);
+            if (existingPost) {
+                // increment the reaction, using the reaction as the key
+                existingPost.reactions[reaction]++;
+            }
         }
+
     }
 })
 
